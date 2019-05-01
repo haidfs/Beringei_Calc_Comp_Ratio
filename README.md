@@ -1,7 +1,8 @@
 # Beringei_Calc_Comp_Ratio
 Beringei存在二级压缩，第一级压缩是在内存中使用Gorilla为原型的压缩方法，二级压缩是用通用zlib压缩后持久化到磁盘。
 该文件夹下代码用于计算Beringei的一级压缩比：
-1.按照Github上所说的编译好Beringei，在虚拟机上，需要存在/opt/run/2/wlan_kpi_2_43fields.csv（入库文件）
+
+1.按照Github上所说的编译好Beringei，在Ubuntu(Beringei以BSD协议开源，官方在Ubuntu16.04做测试可运行，我的环境是18.04也可以)虚拟机上，需要存在/opt/run/2/wlan_kpi_2_43fields.csv（入库文件）
 
 2.相对build路径， cd ../beringei/lib/ 使用文件夹中的TimeSeriesStream.cpp替换原本工程下的TimeSeriesStream.cpp
 
