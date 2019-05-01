@@ -1,0 +1,2 @@
+# Beringei_Calc_Comp_Ratio
+Beringei存在二级压缩，第一级压缩是在内存中使用Gorilla为原型的压缩方法，二级压缩是用通用zlib压缩后持久化到磁盘。这里计算第一级压缩的压缩比。
