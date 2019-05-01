@@ -45,7 +45,7 @@ std::vector <float> getColFromFile(std::string path, int colNumber){
         std::string temp;
 
 
-        while (getline(myfile, temp))                    //ÀûÓÃgetline£¨£©¶ÁÈ¡Ã¿Ò»ĞĞ£¬²¢°´ÕÕĞĞÎªµ¥Î»·ÅÈëµ½std::vector
+        while (getline(myfile, temp))                    //åˆ©ç”¨getlineï¼ˆï¼‰è¯»å–æ¯ä¸€è¡Œï¼Œå¹¶æŒ‰ç…§è¡Œä¸ºå•ä½æ”¾å…¥åˆ°std::vector
         {
                 vec.push_back(temp);
         }
@@ -55,16 +55,16 @@ std::vector <float> getColFromFile(std::string path, int colNumber){
 
         for (auto it = vec.begin(); it != vec.end(); it++)
         {
-                std::istringstream is(*it);                    //ÓÃÃ¿Ò»ĞĞµÄÊı¾İ³õÊ¼»¯Ò»¸ö×Ö·û´®ÊäÈëÁ÷£»
+                std::istringstream is(*it);                    //ç”¨æ¯ä¸€è¡Œçš„æ•°æ®åˆå§‹åŒ–ä¸€ä¸ªå­—ç¬¦ä¸²è¾“å…¥æµï¼›
                 std::string s;
                 int pam = 0;
 
-                while (is >> s)                          //ÒÔ¿Õ¸ñÎª½ç£¬°Ñistd::stringstreamÖĞÊı¾İÈ¡³ö·ÅÈëµ½ÒÀ´ÎsÖĞ
+                while (is >> s)                          //ä»¥ç©ºæ ¼ä¸ºç•Œï¼ŒæŠŠistd::stringstreamä¸­æ•°æ®å–å‡ºæ”¾å…¥åˆ°ä¾æ¬¡sä¸­
                 {
-                        if (pam == colNumber)                       //»ñÈ¡µÚÁùÁĞµÄÊı¾İ
+                        if (pam == colNumber)                       //è·å–ç¬¬å…­åˆ—çš„æ•°æ®
 
                         {
-                                float r = atof(s.c_str());     //×öÊı¾İÀàĞÍ×ª»»£¬½«std::stringÀàĞÍ×ª»»³Éfloat
+                                float r = atof(s.c_str());     //åšæ•°æ®ç±»å‹è½¬æ¢ï¼Œå°†std::stringç±»å‹è½¬æ¢æˆfloat
                                 radius.push_back(r);
                                 //std::cout << r << std::endl;
                         }
