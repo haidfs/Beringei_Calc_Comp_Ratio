@@ -4,7 +4,7 @@ Beringei存在二级压缩，第一级压缩是在内存中使用Gorilla为原�
 
 1.按照Github上所说的编译好Beringei，在Ubuntu(Beringei以BSD协议开源，官方在Ubuntu16.04做测试可运行，我的环境是18.04也可以)虚拟机上，需要存在/opt/run/2/wlan_kpi_2_43fields.csv（入库文件）
 
-2.相对build路径， cd ../beringei/lib/ 使用文件夹中的TimeSeriesStream.cpp替换原本工程下的TimeSeriesStream.cpp
+2.相对build路径， cd ../beringei/lib/ 使用文件夹中的TimeSeriesStream.cpp替换原本工程下的TimeSeriesStream.cpp。工程中的BeringeiPut_2thread.cpp与BeringeiPut.cpp功能一样，只是采用了多线程实现。
 
 3.相对build路径，cd ../beringei/tools/ 使用文件夹中的BeringeiPut.cpp替换原本工程下的BeringeiPut.cpp
 
