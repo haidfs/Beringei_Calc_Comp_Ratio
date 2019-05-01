@@ -26,7 +26,7 @@ using namespace facebook;
 
 DECLARE_string(beringei_configuration_path);
 
-//»ñÈ¡Ä³¸öÎÄ¼şµÄÄ³Ò»ÁĞÊı¾İ¡£
+//è·å–æŸä¸ªæ–‡ä»¶çš„æŸä¸€åˆ—æ•°æ®ã€‚
 std::vector <float> getColFromFile(std::string path, int colNumber){
         std::ifstream myfile(path);
 
@@ -41,7 +41,7 @@ std::vector <float> getColFromFile(std::string path, int colNumber){
         std::string temp;
 
 
-        while (getline(myfile, temp))                    //ÀûÓÃgetline£¨£©¶ÁÈ¡Ã¿Ò»ĞĞ£¬²¢°´ÕÕĞĞÎªµ¥Î»·ÅÈëµ½std::vector
+        while (getline(myfile, temp))                    //åˆ©ç”¨getlineï¼ˆï¼‰è¯»å–æ¯ä¸€è¡Œï¼Œå¹¶æŒ‰ç…§è¡Œä¸ºå•ä½æ”¾å…¥åˆ°std::vector
         {
                 vec.push_back(temp);
         }
@@ -51,16 +51,16 @@ std::vector <float> getColFromFile(std::string path, int colNumber){
 
         for (auto it = vec.begin(); it != vec.end(); it++)
         {
-                std::istringstream is(*it);                    //ÓÃÃ¿Ò»ĞĞµÄÊı¾İ³õÊ¼»¯Ò»¸ö×Ö·û´®ÊäÈëÁ÷£»
+                std::istringstream is(*it);                    //ç”¨æ¯ä¸€è¡Œçš„æ•°æ®åˆå§‹åŒ–ä¸€ä¸ªå­—ç¬¦ä¸²è¾“å…¥æµï¼›
                 std::string s;
                 int pam = 0;
 
-                while (is >> s)                          //ÒÔ¿Õ¸ñÎª½ç£¬°Ñistd::stringstreamÖĞÊı¾İÈ¡³ö·ÅÈëµ½ÒÀ´ÎsÖĞ
+                while (is >> s)                          //ä»¥ç©ºæ ¼ä¸ºç•Œï¼ŒæŠŠistd::stringstreamä¸­æ•°æ®å–å‡ºæ”¾å…¥åˆ°ä¾æ¬¡sä¸­
                 {
-                        if (pam == colNumber)                       //»ñÈ¡µÚÁùÁĞµÄÊı¾İ
+                        if (pam == colNumber)                       //è·å–ç¬¬å…­åˆ—çš„æ•°æ®
 
                         {
-                                float r = atof(s.c_str());     //×öÊı¾İÀàĞÍ×ª»»£¬½«std::stringÀàĞÍ×ª»»³Éfloat
+                                float r = atof(s.c_str());     //åšæ•°æ®ç±»å‹è½¬æ¢ï¼Œå°†std::stringç±»å‹è½¬æ¢æˆfloat
                                 radius.push_back(r);
                                 //std::cout << r << std::endl;
                         }
@@ -81,7 +81,7 @@ int main(int argc, char** argv) {
       std::make_shared<gorilla::BeringeiConfigurationAdapter>(true);
   auto beringeiClient =
       std::make_shared<gorilla::BeringeiClient>(beringeiConfig, 10, 2, true);
-  //ÕâÒ»²¿·Ö¸ÄĞ´ÁËÔ­±¾µÄBeringei½Ó¿Ú£¬µ±ÃüÁîĞĞÊäÈëÒ»¸öÊıÖµnÊ±£¬±íÊ¾´Ó¡±/opt/run/2/wlan_kpi_2_43fields.csv¡°¶ÁÈ¡µÚnÁĞĞ´ÈëBeringei¡£
+  //è¿™ä¸€éƒ¨åˆ†æ”¹å†™äº†åŸæœ¬çš„Beringeiæ¥å£ï¼Œå½“å‘½ä»¤è¡Œè¾“å…¥ä¸€ä¸ªæ•°å€¼næ—¶ï¼Œè¡¨ç¤ºä»â€/opt/run/2/wlan_kpi_2_43fields.csvâ€œè¯»å–ç¬¬nåˆ—å†™å…¥Beringeiã€‚
   if (argc == 2){
     int shardCount = beringeiClient->getNumShardsFromWriteClient();
     LOG(INFO) << "Config knows about these write services: ";
@@ -98,7 +98,7 @@ int main(int argc, char** argv) {
     int a;
     sscanf(argv[1], "%d", &a);
     std::vector <float> radius = getColFromFile("/opt/run/2/wlan_kpi_2_43fields.csv", a);
-    std::chrono::steady_clock::time_point start_time = std::chrono::steady_clock::now();//¿ªÊ¼Ê±¼ä
+    std::chrono::steady_clock::time_point start_time = std::chrono::steady_clock::now();//å¼€å§‹æ—¶é—´
 
     for (auto item = radius.begin(); item != radius.end(); item++){
     std::vector<gorilla::DataPoint> dps;
@@ -122,8 +122,8 @@ int main(int argc, char** argv) {
 
   }
 
-    //¼ÆËãputËùÏûºÄµÄÊ±¼ä²¢´òÓ¡µ½ÆÁÄ»
-    std::chrono::steady_clock::time_point stop_time = std::chrono::steady_clock::now();//½áÊøÊ±¼ä
+    //è®¡ç®—putæ‰€æ¶ˆè€—çš„æ—¶é—´å¹¶æ‰“å°åˆ°å±å¹•
+    std::chrono::steady_clock::time_point stop_time = std::chrono::steady_clock::now();//ç»“æŸæ—¶é—´
     //std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::milliseconds>(stop_time - start_time);
     std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(stop_time - start_time);
     
