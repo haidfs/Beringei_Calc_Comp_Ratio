@@ -8,11 +8,13 @@ Beringei存在二级压缩，第一级压缩是在内存中使用Gorilla为原�
 
 3.相对build路径，cd ../beringei/tools/ 使用文件夹中的BeringeiPut.cpp替换原本工程下的BeringeiPut.cpp。工程中的BeringeiPut_2thread.cpp与BeringeiPut.cpp功能一样，只是采用了多线程实现。
 
-4.将beringei_start.sh、calc_compress.sh、overall_count.py放到build路径下
+4.重新编译Beringei。
 
-5.在build路径下执行nohup sh beringei_start.sh
+5.将beringei_start.sh、calc_compress.sh、overall_count.py放到build路径下
 
-6.新开一个终端，在build路径下执行time ./beringei/tools/beringei_put \
+6.在build路径下执行nohup sh beringei_start.sh
+
+7.新开一个终端，在build路径下执行time ./beringei/tools/beringei_put \
         -beringei_configuration_path /tmp/beringei.json 12（这里的12代表想压缩的第一步的文件的第几列）
         
-7.等待6执行完成， 在build路径下执行sh calc_compress.sh即可获得对应的（入库文件的某一列的）压缩比
+8.等待7执行完成， 在build路径下执行sh calc_compress.sh即可获得对应的（入库文件的某一列的）压缩比
