@@ -1,6 +1,6 @@
 # Beringei_Calc_Comp_Ratio
 ## 背景与编译
-https://blog.csdn.net/weixin_42348333/article/details/86104419
+https://blog.csdn.net/weixin_42348333/column/info/38048
 ## 操作步骤
 Beringei存在二级压缩，第一级压缩是在内存中使用Gorilla为原型的压缩方法，二级压缩是用通用zlib压缩后持久化到磁盘。  
 该文件夹下代码用于计算Beringei的一级压缩比：  
